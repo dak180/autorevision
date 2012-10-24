@@ -88,13 +88,14 @@ one; useful for reporting build numbers.
 The date of the most recent commit in true ISO-8601/RFC3339
 format, including seconds.
 
-*VCS_URI*::
-Repository dependent: for Git the full refspec & for Mercurial the
-bookmark or the branch if there is no bookmark, empty for Subversion;
-meant to provide information on the current head's name.
+*VCS_BRANCH*::
+The current branch. For VCSes with true branches this returns the
+branch name.  Under Subversion, only returns a nonempty string when
+autorevision is run from within a subdirectory of a 'branches'
+directory, in which case it returns the subdirectory basename.
 
 *VCS_TAG*::
-The exact current tag or a synonym for `VCS_URI` if not currently on a
+The exact current tag or a synonym for `VCS_BRANCH` if not currently on a
 tag; useful to to rely on for a version string. Empty under Subversion.
 
 *VCS_FULL_HASH*::
