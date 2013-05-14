@@ -715,8 +715,8 @@ if [ ! -z "${AFILETYPE}" ]; then
 		iniOutput
 	elif [ "${AFILETYPE}" = "js" ]; then
 		jsOutput
- 	elif [ "${AFILETYPE}" = "json" ]; then
-		jsonOutput 
+	elif [ "${AFILETYPE}" = "json" ]; then
+		jsonOutput
 	elif [ "${AFILETYPE}" = "java" ]; then
 		javaOutput
 	elif [ "${AFILETYPE}" = "javaprop" ]; then
