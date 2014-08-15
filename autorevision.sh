@@ -151,7 +151,7 @@ gitRepo() {
 	VCS_BRANCH="$(git rev-parse --symbolic-full-name --verify "$(git name-rev --name-only --no-undefined HEAD 2>/dev/null)" 2>/dev/null | sed -e 's:refs/heads/::' | sed -e 's:refs/::')"
 
 	# Cache the description
-	local DESCRIPTION="$(git describe --long --tags 2>/dev/null)"
+	local DESCRIPTION="$(git describe --long --tags --dirty 2>/dev/null)"
 
 	# Current or last tag ancestor (empty if no tags)
 	VCS_TAG="$(echo "${DESCRIPTION}" | sed -e "s:-g${VCS_SHORT_HASH}\$::" | sed -e 's:-[0-9]*$::')"
