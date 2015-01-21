@@ -1,6 +1,6 @@
 Name:           autorevision
 Version:        1.10a
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A shell script for extracting revision information.
 
 License:       dak180
@@ -56,6 +56,8 @@ mkdir -p $RPM_BUILD_ROOT%{docdir}/%{app}-%{version}
 mkdir -p $RPM_BUILD_ROOT%{mandir}
 
 cp %{app} $RPM_BUILD_ROOT%{bindir}/%{app}
+cp contribs/gitrepos-revision.sh $RPM_BUILD_ROOT%{bindir}/gitrepos-revision
+cp contribs/vcs-wc-modified.sh   $RPM_BUILD_ROOT%{bindir}/vcs-wc-modified
 cp -r AUTHORS.txt %{app}.html contribs CONTRIBUTING.html \
       COPYING.html examples NEWS README.html \
       $RPM_BUILD_ROOT%{docdir}/%{app}-%{version}
@@ -69,11 +71,16 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 %{bindir}/%{app}
+%{bindir}/gitrepos-revision
+%{bindir}/vcs-wc-modified
 %{docdir}/%{app}-%{version}/*
 %{mandir}/%{app}.1.gz
 
 
 %changelog
+* Wed Jan 21 2015 Dennis Biringer <dbiringer@integrity-apps.com> - 1.10a-2
+- Added shell utilities in contribs.
+
 * Wed Jan 21 2015 Dennis Biringer <dbiringer@integrity-apps.com> - 1.10a-1
 - Initial RPM for PDS extended autorevision.
 
