@@ -106,5 +106,5 @@ then
 fi
 
 # Create package
-rpmbuild -b$STAGE $SHORt_CIRCUIT $RPM_BUILD/SPECS/$SPEC
+rpmbuild -b$STAGE $SHORT_CIRCUIT $RPM_BUILD/SPECS/$SPEC
 
