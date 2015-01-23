@@ -3,7 +3,7 @@ Version:        1.10a
 Release:        2%{?dist}
 Summary:        A shell script for extracting revision information.
 
-License:       dak180
+License:       dak180 (See /usr/share/doc/autorevision-1.10a/COPYING.html)
 URL:           https://github.com/Autorevision/autorevision
 Source0:       %{name}-%{version}.tar.gz
 
