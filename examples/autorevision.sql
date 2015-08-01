@@ -7,12 +7,18 @@ CREATE TABLE vcs (
 	num					INTEGER UNSIGNED,
 	date				VARCHAR(45),
 	branch				VARCHAR(45),
+	tag					VARCHAR(45),
+	tick				INTEGER UNSIGNED,
+	extra				VARCHAR(45),
 	full_hash			VARCHAR(45),
-	short_hash			VARCHAR(10)
+	short_hash			VARCHAR(45),
+	wc_modified			INTEGER UNSIGNED
 );
 
 INSERT INTO vcs (type,basename,uuid,num,date,branch,tag,
 				tick,extra,full_hash,short_hash,wc_modified)
-		VALUES ('git','autorevision','da2830f81fec4c6ebce8ebf23f35b0e6b066c149',289,'2015-07-30T20:19:11-0400',
-			'master', '18ff79342483d3b3f839b6c5968194a23f5263b1','18ff793';
+		VALUES ('git','autorevision','da2830f81fec4c6ebce8ebf23f35b0e6b066c149',291,
+			'2015-07-31T20:40:44-0400','master','v/1.12',8,
+			'','ea8ce3f1257a5ad60c9afe3e6f6b1db5ab8eb6ec','ea8ce3f',
+			0;
 -- end
