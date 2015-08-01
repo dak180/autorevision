@@ -857,14 +857,20 @@ CREATE TABLE vcs (
 	num					INTEGER UNSIGNED,
 	date				VARCHAR(45),
 	branch				VARCHAR(45),
+	tag					VARCHAR(45),
+	tick				INTEGER UNSIGNED,
+	extra				VARCHAR(45),
 	full_hash			VARCHAR(45),
-	short_hash			VARCHAR(10)
+	short_hash			VARCHAR(45),
+	wc_modified			INTEGER UNSIGNED
 );
 
 INSERT INTO vcs (type,basename,uuid,num,date,branch,tag,
 				tick,extra,full_hash,short_hash,wc_modified)
-		VALUES ('${VCS_TYPE}','${VCS_BASENAME}','${VCS_UUID}',${VCS_NUM},'${VCS_DATE}',
-			'${VCS_BRANCH}', '${VCS_FULL_HASH}','${VCS_SHORT_HASH}';
+		VALUES ('${VCS_TYPE}','${VCS_BASENAME}','${VCS_UUID}',${VCS_NUM},
+			'${VCS_DATE}','${VCS_BRANCH}','${VCS_TAG}',${VCS_TICK},
+		'${VCS_EXTRA}','${VCS_FULL_HASH}','${VCS_SHORT_HASH}',
+		${VCS_WC_MODIFIED});
 -- end
 EOF
 }
