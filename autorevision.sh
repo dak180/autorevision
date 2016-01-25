@@ -756,6 +756,11 @@ public class autorevision {
     public static final String VCS_SHORT_HASH = "${VCS_SHORT_HASH}";
 
     public static final boolean VCS_WC_MODIFIED = ${VCS_WC_MODIFIED};
+    
+    public static final String BUILD_URL = "${BUILD_URL}";
+    public static final String BUILD_NUMBER = "${BUILD_NUMBER}";
+    public static final String BUILD_TIME = "$(date +%Y-%m-%dT%H:%M:%S%Z)";
+
 }
 EOF
 }
