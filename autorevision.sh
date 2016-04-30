@@ -834,6 +834,10 @@ var autorevision = {
 	VCS_COMMIT_OPENPGP: "${VCS_COMMIT_OPENPGP}",
 	VCS_SHORT_HASH: "${VCS_SHORT_HASH}",
 
+	BUILD_NUMBER:"${BUILD_NUMBER}",
+	BUILD_TIME:"${BUILD_TIME}",
+	BUILD_URL:"${BUILD_URL}",
+
 	VCS_WC_MODIFIED: ${VCS_WC_MODIFIED}
 };
 
@@ -1334,7 +1338,19 @@ repoTest() {
 	fi
 }
 
+buildInfo() {
 
+    if [ "z${GO_PIPELINE_LABEL}" != "z" ]; then
+        BUILD_NUMBER=${GO_PIPELINE_LABEL}
+        BUILD_TIME=$(date +%Y-%m-%dT%H:%M:%S%Z)
+        BUILD_URL="${GO_SERVER_URL}pipelines/value_stream_map/${GO_PIPELINE_NAME}/${GO_PIPELINE_LABEL}"
+    else
+        BUILD_NUMBER="0"
+        BUILD_TIME="1975-00-00T00:01:01EDT"
+        BUILD_URL="http://www.example.net/x"
+    fi
+
+}
 
 # Detect which repos we are in and gather data.
 # shellcheck source=/dev/null
@@ -1352,6 +1368,8 @@ else
 	fi
 
 	repoTest
+
+	buildInfo
 
 	if [ ! -z "${originalPath}" ]; then
 		# shellcheck disable=SC2164
