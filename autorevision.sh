@@ -875,6 +875,10 @@ jsonOutput() {
 	"VCS_COMMIT_OPENPGP": "${VCS_COMMIT_OPENPGP}",
 	"VCS_SHORT_HASH": "${VCS_SHORT_HASH}",
 
+	"BUILD_NUMBER": "${BUILD_NUMBER}",
+	"BUILD_TIME": "${BUILD_TIME}",
+	"BUILD_URL": "${BUILD_URL}",
+
 	"VCS_WC_MODIFIED": ${VCS_WC_MODIFIED}
 }
 EOF
@@ -905,6 +909,10 @@ public class autorevision {
     public static final String VCS_FULL_HASH = "${VCS_FULL_HASH}";
     public static final String VCS_COMMIT_OPENPGP = "${VCS_COMMIT_OPENPGP}";
     public static final String VCS_SHORT_HASH = "${VCS_SHORT_HASH}";
+    
+	public static final String BUILD_NUMBER = "${BUILD_NUMBER}",
+	public static final String BUILD_TIME = "${BUILD_TIME}",
+	public static final String BUILD_URL = "${BUILD_URL}",
 
     public static final boolean VCS_WC_MODIFIED = ${VCS_WC_MODIFIED};
 }
@@ -973,6 +981,10 @@ VCS_ACTION_STAMP=${VCS_ACTION_STAMP}
 VCS_FULL_HASH=${VCS_FULL_HASH}
 VCS_COMMIT_OPENPGP=${VCS_COMMIT_OPENPGP}
 VCS_SHORT_HASH=${VCS_SHORT_HASH}
+
+BUILD_NUMBER=${BUILD_NUMBER}
+BUILD_TIME=${BUILD_TIME}
+BUILD_URL=${BUILD_URL}
 
 VCS_WC_MODIFIED=${VCS_WC_MODIFIED}
 EOF
