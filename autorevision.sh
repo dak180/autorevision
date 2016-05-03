@@ -1358,7 +1358,7 @@ buildInfo() {
         BUILD_URL="${GO_SERVER_URL}pipelines/value_stream_map/${GO_PIPELINE_NAME}/${GO_PIPELINE_LABEL}"
     else
         BUILD_NUMBER="0"
-        BUILD_TIME="1975-00-00T00:01:01EDT"
+        BUILD_TIME="1975-01-09T00:01:01EDT"
         BUILD_URL="http://www.example.net/x"
     fi
 
