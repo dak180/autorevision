@@ -936,6 +936,9 @@ namespace AutoRevision
         public static string VcsFullHash = "${VCS_FULL_HASH}";
         public static string VcsCommitOpenpgp = "${VCS_COMMIT_OPENPGP}";
         public static string VcsShortHash = "${VCS_SHORT_HASH}";
+        public static string BuildNumber = "${BUILD_NUMBER}";
+        public static string BuildTime = "${BUILD_TIME}";
+        public static string BuildUrl = "${BUILD_URL}";
         public static string VcsWcModified = "${VCS_WC_MODIFIED}";
     }
 }
