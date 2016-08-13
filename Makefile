@@ -134,4 +134,5 @@ docs: \
 # Tag with `git tag -s v/<number>` before running this.
 release: docs dist
 	git tag -v "v/$(VERS)"
+	./examples/mkexamp.sh
 #	shipper version=$(VERS) | sh -e -x
