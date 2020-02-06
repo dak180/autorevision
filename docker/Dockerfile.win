@@ -1,0 +1,16 @@
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
+ENV chocolateyUseWindowsCompression false
+
+RUN mkdir \auto
+RUN mkdir \inst
+ADD ./autorevision.sh c:/auto
+
+
+RUN powershell -Command \
+   iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1')); \
+   choco feature disable --name showDownloadProgress
+   
+RUN choco install -y git 
+RUN setx path "%path%;c:\program files\git\bin"
+
+ENTRYPOINT ["c:/program files/git/bin/bash", "/c/auto/autorevision.sh"]
