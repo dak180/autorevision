@@ -12,6 +12,7 @@
 VERS := $(shell ./autorevision.sh -s VCS_TAG -o ./autorevision.cache | sed -e 's:v/::')
 # Date for documentation
 DOCDATE := $(shell ./autorevision.sh -s VCS_DATE -o ./autorevision.cache -f | sed -e 's:T.*::')
+DOCTIME := $(shell ./autorevision.sh -s VCS_DATE -o ./autorevision.cache -f | sed -e 's:.*T::' | sed -e 's:Z: UTC:')
 
 # Find a md5 program
 MD5 := $(shell if command -v "md5" > /dev/null 2>&1; then echo "md5 -q"; elif command -v "md5sum" > /dev/null 2>&1; then echo "md5sum"; fi)
@@ -62,11 +63,11 @@ autorevision.1.gz: autorevision.1
 	gzip --no-name < autorevision.1 > autorevision.1.gz
 
 autorevision.1: autorevision.asciidoc
-	a2x --attribute="revdate=$(DOCDATE)" --attribute="revnumber=$(VERS)" -f manpage autorevision.asciidoc
+	asciidoctor --attribute="compat-mode" --attribute="revdate=$(DOCDATE)" --attribute="localdate=$(DOCDATE)" --attribute="localtime=$(DOCTIME)" --attribute="docdate=$(DOCDATE)" --attribute="doctime=$(DOCTIME)" --attribute="revnumber=$(VERS)" --doctype=manpage --backend=manpage autorevision.asciidoc
 
 # HTML representation of the man page
 autorevision.html: autorevision.asciidoc
-	asciidoc --attribute="revdate=$(DOCDATE)" --attribute="footer-style=revdate" --attribute="revnumber=$(VERS)" --doctype=manpage --backend=xhtml11 autorevision.asciidoc
+	asciidoctor --attribute="compat-mode" --attribute="revdate=$(DOCDATE)" --attribute="localdate=$(DOCDATE)" --attribute="localtime=$(DOCTIME)" --attribute="docdate=$(DOCDATE)" --attribute="doctime=$(DOCTIME)" --attribute="revnumber=$(VERS)" --doctype=manpage --backend=xhtml5 autorevision.asciidoc
 
 # Authors
 auth: AUTHORS.txt
